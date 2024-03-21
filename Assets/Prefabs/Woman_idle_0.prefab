@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3216775701422872755}
   - component: {fileID: 2162573028825698363}
   - component: {fileID: 1527497189475905413}
-  - component: {fileID: 5929734882390729909}
   m_Layer: 0
   m_Name: Woman_idle_0
   m_TagString: TicketLady
@@ -233,15 +232,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.33}
   m_EdgeRadius: 0
---- !u!114 &5929734882390729909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2745959977009417777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 074f58e4e80224a8f99931964d907544, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

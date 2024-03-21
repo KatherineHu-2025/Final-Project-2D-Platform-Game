@@ -2821,7 +2821,7 @@ MonoBehaviour:
   raycastDistance: 3
   layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1
   myText: {fileID: 1197474518}
 --- !u!1 &578379121
 GameObject:
@@ -3208,7 +3208,7 @@ MonoBehaviour:
   raycastDistance: 3
   layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1
   myText: {fileID: 1197474518}
 --- !u!1 &834573231
 GameObject:
@@ -3895,7 +3895,7 @@ MonoBehaviour:
   raycastDistance: 3
   layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1
   myText: {fileID: 1197474518}
 --- !u!1 &1432996265
 GameObject:
@@ -3945,7 +3945,7 @@ MonoBehaviour:
   raycastDistance: 3
   layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1
   myText: {fileID: 1197474518}
 --- !u!1 &1519924001
 GameObject:
