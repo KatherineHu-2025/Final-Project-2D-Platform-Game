@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 2779760338733029095}
   - component: {fileID: 9115427617685615947}
   - component: {fileID: 2462162759509402233}
-  m_Layer: 7
+  - component: {fileID: 4464718555835015329}
+  m_Layer: 0
   m_Name: SteamMan_idle_0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,6 +205,19 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  speed: 100
+  speed: 150
   jumpForce: 11
-  money: 0
+  jumpSFX: {fileID: 0}
+--- !u!114 &4464718555835015329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8926998077459206697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf31608fbedf47e89c918dfd585a478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myText: {fileID: 0}

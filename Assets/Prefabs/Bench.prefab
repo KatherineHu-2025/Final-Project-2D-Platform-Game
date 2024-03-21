@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7307016681041283974}
   - component: {fileID: 2063046932544899866}
   - component: {fileID: 7571916371338867341}
-  - component: {fileID: 8753500678350778067}
+  - component: {fileID: 7857824852359273017}
   m_Layer: 6
   m_Name: Bench
   m_TagString: Untagged
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8753500678350778067
+--- !u!114 &7857824852359273017
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

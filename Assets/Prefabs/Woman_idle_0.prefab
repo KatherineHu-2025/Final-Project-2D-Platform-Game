@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 2162573028825698363}
   - component: {fileID: 1527497189475905413}
   - component: {fileID: 5929734882390729909}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Woman_idle_0
-  m_TagString: Untagged
+  m_TagString: TicketLady
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
