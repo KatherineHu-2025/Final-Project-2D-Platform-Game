@@ -12,6 +12,8 @@ public class BoyMovement : MonoBehaviour
     private bool isGrounded;
     private bool isRunning;
 
+    private float jumpCooldown;
+
 
     //Jump
     private bool _isJumpQueued = false;
@@ -94,7 +96,7 @@ public class BoyMovement : MonoBehaviour
 
     void JumpIfQueued()
     {
-        if (_isJumpQueued)
+        if (_isJumpQueued && jumpCooldown < 1) 
         {
             _isJumpQueued = false;
             _playerRigidBody.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
@@ -102,6 +104,8 @@ public class BoyMovement : MonoBehaviour
 
             jumpAudioSource.time = 0.2f;
             jumpAudioSource.Play(); //play the jump sound effect
+
+            jumpCooldown = 1f;
         }
     }
 
@@ -110,6 +114,7 @@ public class BoyMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             _isJumpQueued = true;
+            jumpCooldown -= Time.deltaTime;
         }
     }
 
@@ -132,11 +137,12 @@ public class BoyMovement : MonoBehaviour
         if (Physics2D.Raycast(transform.position, Vector3.down, 1f, layerMask))
         {
             isGrounded = true;
+            
         }
         else
         {
-
-            isGrounded = false;
+            StartCoroutine(Co_CoyoteTimer());
+            //isGrounded = false;
         }
         _playerAnimator.SetBool("isGrounded", isGrounded);
     }
@@ -167,5 +173,11 @@ public class BoyMovement : MonoBehaviour
             moneyAudioSource.Play(); //play money collecting sfx
 
         }
+    }
+
+    IEnumerator Co_CoyoteTimer()
+    {
+        yield return new WaitForSecondsRealtime(0.12f);
+        isGrounded = false;
     }
 }
