@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
     private SpriteRenderer _playerSpriteRenderer;
     private Rigidbody2D _playerRigidBody;
     private Animator _playerAnimator;
+    public Slider moneySlider;
 
     private bool isGrounded;
     private bool isRunning;
@@ -39,7 +41,7 @@ public class Character : MonoBehaviour
     {
         CheckForQueuingJump();
         CheckForRunning();
-        
+        UpdateMoney();
     }
     void FixedUpdate()
     {
@@ -121,11 +123,15 @@ public class Character : MonoBehaviour
 
     void CheckGrounded()
     {
-        if(Physics2D.Raycast(transform.position, Vector3.down, 1f,layerMask)){
-            isGrounded=true;
+        if (Physics2D.Raycast(transform.position, Vector3.down, 1f, layerMask))
+        {
+            isGrounded = true;
+            
         }
-        else{
-            isGrounded=false;
+        else
+        {
+            StartCoroutine(Co_CoyoteTimer());
+            //isGrounded = false;
         }
         _playerAnimator.SetBool("isGrounded", isGrounded);
     }
@@ -133,6 +139,12 @@ public class Character : MonoBehaviour
     public void decreaseHealth()
     {
         _playerAnimator.SetTrigger("isHurting");
+    }
+
+    IEnumerator Co_CoyoteTimer()
+    {
+        yield return new WaitForSecondsRealtime(0.12f);
+        isGrounded = false;
     }
 
     public static int IncreaseMoney(){
@@ -145,5 +157,10 @@ public class Character : MonoBehaviour
 
     public void BuyTicket(){
         withTicket = true;
+    }
+
+    void UpdateMoney(){
+        float money = CheckMoney();
+        moneySlider.value = money;
     }
 }
