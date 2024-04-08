@@ -22,7 +22,7 @@ public class CheckpointRespawn : MonoBehaviour
         if (collision.transform.tag == "Restart")
         {
             transform.position = currentCheckpoint.position; //reset player's position to checkpoint's position
-            Debug.Log("respawned");
+            Debug.Log("respawncount is:" + respawnCount);
             respawnCount++;
             RespawnText();
         }
@@ -39,15 +39,26 @@ public class CheckpointRespawn : MonoBehaviour
 
     private void RespawnText()
     {
-        
-        if (respawnCount >= 10)
+
+        if (respawnCount <= 5)
+        {
+            myText.text = "That's rough. Keep going!";
+        }
+
+        if (respawnCount > 5 && respawnCount <= 10)
+        {
+            myText.text = "Don't give up!";
+        }
+
+        if (respawnCount > 10 && respawnCount <= 15)
+        {
+            myText.text = "Come on, it's not THAT hard...";
+        }
+
+        if (respawnCount > 15)
         {
             myText.text = "...";
         }
 
-        else
-        {
-            myText.text = "That's rough. Keep going!";
-        }
     }
 }
