@@ -21,7 +21,7 @@ public class ColliderBox : MonoBehaviour
         {
             // Disables the Collider2D component
             float money = Character.IncreaseMoney();
-            moneySlider.value = money;
+            UpdateMoney();
             _moneyAnimator.Play("MoneySpin");
         }
     }

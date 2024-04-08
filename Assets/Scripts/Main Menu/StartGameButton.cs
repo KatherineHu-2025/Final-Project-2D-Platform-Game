@@ -7,6 +7,6 @@ public class StartGameButton : MonoBehaviour
 {
     // Start is called before the first frame update
     public void StartGame(){
-        SceneManager.LoadScene("BoyPhaseFinal");
+        SceneManager.LoadScene("BoyPhaseUpdate");
     }
 }
