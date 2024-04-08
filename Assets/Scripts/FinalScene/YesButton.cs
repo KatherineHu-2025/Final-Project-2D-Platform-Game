@@ -31,6 +31,8 @@ public class YesButton : MonoBehaviour
         myText.text = "As you wished.";
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("Main Menu");
+        Character.withTicket = false;
+        Character.money = 0;
     }
 
     private void removeButton()
