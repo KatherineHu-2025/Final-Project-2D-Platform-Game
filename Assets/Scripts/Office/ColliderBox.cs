@@ -9,10 +9,6 @@ public class ColliderBox : MonoBehaviour
     public Slider moneySlider;
 
     public Animator _moneyAnimator;
-    void Start(){
-        UpdateMoney();
-        _boxRigidbody = GetComponent<Rigidbody2D>();
-    }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -21,11 +17,10 @@ public class ColliderBox : MonoBehaviour
         {
             // Disables the Collider2D component
             float money = Character.IncreaseMoney();
-            UpdateMoney();
             _moneyAnimator.Play("MoneySpin");
         }
     }
-    void UpdateMoney(){
+    public void UpdateMoney(){
         float money = Character.CheckMoney();
         moneySlider.value = money;
     }

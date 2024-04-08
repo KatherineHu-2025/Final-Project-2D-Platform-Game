@@ -30,7 +30,6 @@ public class Character : MonoBehaviour
     
     void Start()
     {   
-        money = BoyMovement.money;
         _playerSpriteRenderer = GetComponent<SpriteRenderer>();
         _playerRigidBody = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();

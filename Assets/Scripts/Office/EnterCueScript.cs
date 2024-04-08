@@ -14,6 +14,10 @@ public class EnterCueScript : MonoBehaviour
 
     private int count = ReloadCounter.reloadCount;
 
+    void Start(){
+        Debug.Log("Money is " + Character.money);
+    }
+
     void Update()
     {
         shootRaycast();

@@ -166,7 +166,7 @@ public class BoyMovement : MonoBehaviour
     {
         if (collision.CompareTag("Money"))
         {
-            money = 5;
+            Character.money += 5;
             collision.gameObject.SetActive(false);
             Debug.Log("money is: " + money);
             moneyAudioSource.time = 0.4f;
