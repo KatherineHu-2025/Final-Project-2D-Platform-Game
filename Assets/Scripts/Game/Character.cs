@@ -24,6 +24,7 @@ public class Character : MonoBehaviour
     public static int money = 0;
 
     public static bool withTicket = false;
+    public static bool withInsurance = false;
 
     //audio sfx
     public AudioSource jumpSFX;

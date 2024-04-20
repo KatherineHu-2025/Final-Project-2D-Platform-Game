@@ -6,11 +6,9 @@ using UnityEngine.SceneManagement;
 public class Boss : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
-    private SpriteRenderer signSpriteRenderer;
     public Transform raycastOrigin; 
     public float raycastDistance = 3f; 
     public LayerMask layerMask;
-    public TMP_Text myText;
 
     // Start is called before the first frame update
     void Start()
@@ -39,10 +37,7 @@ public class Boss : MonoBehaviour
                     RaycastHit2D hit = Physics2D.Raycast(raycastOrigin.position, Vector2.left, raycastDistance, layerMask);
                     if (hit.collider != null)
                     {   
-                        if(Character.CheckMoney() >= 30){
-                            myText.text = "Your work for today is finished. You can leave now.";
-                        }
-                        else{
+                        if(Character.CheckMoney() < 30){
                             SceneManager.LoadScene("Office");
                             yield break; // Exit the coroutine if an object is detected and the scene is changed
                         }
