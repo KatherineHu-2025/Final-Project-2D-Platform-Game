@@ -9,6 +9,7 @@ public class Boss : MonoBehaviour
     public Transform raycastOrigin; 
     public float raycastDistance = 3f; 
     public LayerMask layerMask;
+    public static bool isCaught = false;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,7 @@ public class Boss : MonoBehaviour
                     if (hit.collider != null)
                     {   
                         if(Character.CheckMoney() < 30){
+                            isCaught = true;
                             SceneManager.LoadScene("Office");
                             yield break; // Exit the coroutine if an object is detected and the scene is changed
                         }

@@ -7834,6 +7834,7 @@ MonoBehaviour:
   menu: {fileID: 7389884131775034589, guid: 9ae2d222229794bbd884477af3756adf, type: 3}
   ticketAudioSource: {fileID: 1006745669}
   dialogueSystem: {fileID: 1744168678}
+  npc: {fileID: -509162590, guid: e4f94e13b1cc648eeb8c9c2545306fcb, type: 3}
 --- !u!61 &1801616500
 BoxCollider2D:
   m_ObjectHideFlags: 0

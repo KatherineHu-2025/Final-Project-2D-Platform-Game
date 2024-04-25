@@ -5,31 +5,38 @@ public class RespawnCheck : MonoBehaviour
 {
     // Start is called before the first frame update
     private Transform currentCheckpoint; //Stores the last checkpoint here
-    private int respawnCount = 0;
+
+    public static int respawnCount = 0;
     public DialogueSystem dialogueSystem;
+
+    public static bool freelanceCheck = false;
+    public static int caughtCount = 0;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Scene currentScene = SceneManager.GetActiveScene();
         if (collision.transform.tag == "Checkpoint")
         {
             currentCheckpoint = collision.transform; //store the checkpoint that was just activated as the current one
             collision.GetComponent<BoxCollider2D>().enabled = false; //deactivate checkpoint collider
             Debug.Log("checkpoint reached. Current checkpiont is " + currentCheckpoint);
+
+            if(currentScene.name == "Freelance"){
+                freelanceCheck = true;
+            }
         }
 
         if (collision.transform.tag == "TicketLady" && !Character.withTicket)
         {
             transform.position = currentCheckpoint.position; //reset player's position to checkpoint's position
-            Debug.Log("respawned");
             respawnCount++;
+            caughtCount++;
         }
 
         if (collision.transform.tag == "Restart")
         {   
-            Scene currentScene = SceneManager.GetActiveScene();
             transform.position = currentCheckpoint.position; //reset player's position to checkpoint's position
-            Debug.Log("respawned");
             if(!Character.withInsurance && currentScene.name == "Freelance"){
                  if(Character.money >= 5){
                     Character.money -= 5;
@@ -44,7 +51,7 @@ public class RespawnCheck : MonoBehaviour
         }
 
         if (collision.transform.tag == "Final"){
-            SceneManager.LoadScene("Final");
+            SceneManager.LoadScene("Achievements");
         }
     }
 
@@ -53,7 +60,7 @@ public class RespawnCheck : MonoBehaviour
         if (collision.transform.tag == "Spikes")
         {
             transform.position = currentCheckpoint.position; //reset player's position to checkpoint's position
-            Debug.Log("hit spikes");
+            respawnCount++;
         }
     }
 
@@ -79,4 +86,5 @@ public class RespawnCheck : MonoBehaviour
             dialogueSystem.StartDialogueNPC("...");
         }
     }
+
 }

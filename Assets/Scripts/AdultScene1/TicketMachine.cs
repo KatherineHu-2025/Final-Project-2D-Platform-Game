@@ -16,6 +16,7 @@ public class TicketMachine : MonoBehaviour
 
     
     public DialogueSystem dialogueSystem;
+    public Sprite npc;
 
     void Update(){
         if(playerInRange){
@@ -27,9 +28,9 @@ public class TicketMachine : MonoBehaviour
         if(collision.CompareTag("Player")){
             player = collision;
             playerInRange = true;
-            dialogueSystem.StartDialogueNPC("Press 'B' to buy ticket. 'Y' for Yes, 'N' for No.");
+            dialogueSystem.StartDialogue("Press 'B' to buy ticket. 'Y' for Yes, 'N' for No.",npc);
             if(Character.withTicket){
-                dialogueSystem.StartDialogueNPC("You've already bought the ticket!");
+                dialogueSystem.StartDialogue("You've already bought the ticket!",npc);
             }
         }
     }
@@ -47,7 +48,7 @@ public class TicketMachine : MonoBehaviour
                 ticketAudioSource.Play();
             }   
             else{
-                dialogueSystem.StartDialogueNPC("It seems you don't have enough money...Good luck!");
+                dialogueSystem.StartDialogue("It seems you don't have enough money...Good luck!",npc);
                 Destroy(ticket);
             }
         }
