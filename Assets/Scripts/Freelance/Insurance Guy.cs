@@ -36,7 +36,7 @@ public class InsuranceGuy : MonoBehaviour
             }
             else
             {
-                dialogueSystem.StartDialogue("Press 'Y' to buy the insurance. It's only $10 and it's permanent!", npc);
+                dialogueSystem.StartDialogue("Don't want to pay out of your pocket when you get injured? Press 'Y' to buy the insurance. It's only $10 and it's permanent!", npc);
             }
         }
     }

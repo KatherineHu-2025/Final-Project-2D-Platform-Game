@@ -408,7 +408,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1281881543}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &360298222
@@ -499,6 +500,7 @@ GameObject:
   - component: {fileID: 564007005}
   - component: {fileID: 564007004}
   - component: {fileID: 564007007}
+  - component: {fileID: 564007008}
   m_Layer: 5
   m_Name: No
   m_TagString: Untagged
@@ -582,6 +584,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 564007008}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ClickButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &564007005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,6 +650,19 @@ MonoBehaviour:
   YesButton: {fileID: 757018530}
   thisButton: {fileID: 564007002}
   buttonText: {fileID: 1741800043}
+--- !u!114 &564007008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564007002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5156d5e55cc934e5fb853ff3d720843c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonClick: {fileID: 1281881542}
 --- !u!1 &667708511
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,6 +810,7 @@ GameObject:
   - component: {fileID: 757018533}
   - component: {fileID: 757018532}
   - component: {fileID: 757018535}
+  - component: {fileID: 757018536}
   m_Layer: 5
   m_Name: Yes
   m_TagString: Untagged
@@ -866,6 +894,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 757018536}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ClickButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &757018533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -920,6 +960,19 @@ MonoBehaviour:
   NoButton: {fileID: 564007002}
   thisButton: {fileID: 757018530}
   buttonText: {fileID: 667708513}
+--- !u!114 &757018536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757018530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5156d5e55cc934e5fb853ff3d720843c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonClick: {fileID: 1281881542}
 --- !u!1 &1152676578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,6 +1109,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152676578}
   m_CullTransparentMesh: 1
+--- !u!82 &1281881542 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5045628141197400540, guid: ac1cf0feac9c149efbac0991db90db06, type: 3}
+  m_PrefabInstance: {fileID: 1906800780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1281881543 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5009097875029992734, guid: ac1cf0feac9c149efbac0991db90db06, type: 3}
+  m_PrefabInstance: {fileID: 1906800780}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1680727690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1358,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741800041}
   m_CullTransparentMesh: 1
+--- !u!1001 &1906800780
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 109558359}
+    m_Modifications:
+    - target: {fileID: 5009097875029992734, guid: ac1cf0feac9c149efbac0991db90db06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 470.6935
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009097875029992734, guid: ac1cf0feac9c149efbac0991db90db06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 251.56723
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009097875029992734, guid: ac1cf0feac9c149efbac0991db90db06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009097875029992734, guid: ac1cf0feac9c149efbac0991db90db06, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009097875029992734, guid: ac1cf0feac9c149efbac0991db90db06, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009097875029992734, guid: ac1cf0feac9c149efbac0991db90db06, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009097875029992734, guid: ac1cf0feac9c149efbac0991db90db06, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009097875029992734, guid: ac1cf0feac9c149efbac0991db90db06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009097875029992734, guid: ac1cf0feac9c149efbac0991db90db06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009097875029992734, guid: ac1cf0feac9c149efbac0991db90db06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758684003611039716, guid: ac1cf0feac9c149efbac0991db90db06, type: 3}
+      propertyPath: m_Name
+      value: ClickAudio
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ac1cf0feac9c149efbac0991db90db06, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
