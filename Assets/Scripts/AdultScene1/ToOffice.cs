@@ -31,5 +31,4 @@ public class ToOffice : MonoBehaviour
             Gizmos.DrawLine(raycastOrigin.position, raycastOrigin.position + Vector3.up * raycastDistance);
         }
     }
-   
 }

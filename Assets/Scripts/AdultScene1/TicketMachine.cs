@@ -6,53 +6,57 @@ using UnityEngine;
 
 public class TicketMachine : MonoBehaviour
 {
-    public Transform raycastOrigin; 
-    public float raycastDistance = 3f;
-    public LayerMask layerMask;
-    public TMP_Text myText;
     public GameObject menu;
 
     private GameObject ticket;
+    private bool playerInRange;
+    private Collider2D player;
 
     public AudioSource ticketAudioSource;
 
+    
+    public DialogueSystem dialogueSystem;
 
-    void Update()
-    {
-        shootRaycast();
-    }
-
-    void shootRaycast(){
-        RaycastHit2D hit = Physics2D.Raycast(raycastOrigin.position, Vector2.up, raycastDistance, layerMask);
-        if (hit.collider != null && hit.collider.CompareTag("Player"))
-        {   
-            myText.text = "Press 'B' to buy ticket. 'Y' for Yes, 'N' for No.";
-            PopMenu(hit);
+    void Update(){
+        if(playerInRange){
+            PopMenu(player);
         }
     }
 
-    void PopMenu(RaycastHit2D hit){
+    private void OnTriggerEnter2D(Collider2D collision){
+        if(collision.CompareTag("Player")){
+            player = collision;
+            playerInRange = true;
+            dialogueSystem.StartDialogueNPC("Press 'B' to buy ticket. 'Y' for Yes, 'N' for No.");
+            if(Character.withTicket){
+                dialogueSystem.StartDialogueNPC("You've already bought the ticket!");
+            }
+        }
+    }
+
+    void PopMenu(Collider2D collision){
         if(Input.GetKeyDown(KeyCode.B)){
+            Debug.Log("Pressed");
             ticket = Instantiate(menu, transform.position + Vector3.up*3, transform.rotation);
         }
-        if(Input.GetKeyDown(KeyCode.Y) && Character.money >= 5){    
-                hit.collider.gameObject.GetComponent<Character>().BuyTicket();
+        if(Input.GetKeyDown(KeyCode.Y)){
+            if(Character.money >= 5){
+                collision.gameObject.GetComponent<Character>().BuyTicket();
                 Character.money -= 5;
                 Destroy(ticket);
                 ticketAudioSource.Play();
+            }   
+            else{
+                dialogueSystem.StartDialogueNPC("It seems you don't have enough money...Good luck!");
+                Destroy(ticket);
             }
+        }
         else if(Input.GetKeyDown(KeyCode.N)){
             Destroy(ticket);
         }
-
     }
-
-    void OnDrawGizmos()
-    {
-        if (raycastOrigin != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(raycastOrigin.position, raycastOrigin.position + Vector3.up * raycastDistance);
-        }
+    private void OnTriggerExit2D(Collider2D collision){
+        playerInRange = false;
+        dialogueSystem.EndDialogue();
     }
 }
