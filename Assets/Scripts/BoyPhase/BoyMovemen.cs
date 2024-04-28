@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+//using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class BoyMovement : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class BoyMovement : MonoBehaviour
 
     private float jumpCooldown;
 
+    public Slider moneySlider;
     public Slider pageSlider;
 
     //Jump
@@ -36,13 +38,14 @@ public class BoyMovement : MonoBehaviour
         _playerSpriteRenderer = GetComponent<SpriteRenderer>();
         _playerRigidBody = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
+        
 
     }
 
     void Update()
     {
         CheckForQueuingJump();
-        //UpdatePages();
+        UpdateMoney();
 
     }
     void FixedUpdate()
@@ -176,6 +179,11 @@ public class BoyMovement : MonoBehaviour
         return pages++;
     }
 
+    void UpdateMoney()
+    {
+        float money = Character.CheckMoney();
+        moneySlider.value = money;
+    }
     void UpdatePages()
     {
         float pages = CheckPages();
@@ -186,9 +194,10 @@ public class BoyMovement : MonoBehaviour
     {
         if (collision.CompareTag("Money"))
         {
-            Character.money += 5;
             collision.gameObject.SetActive(false);
-            Debug.Log("money is: " + money);
+            Character.money += 5;
+            UpdateMoney();
+            Debug.Log("money is: " + Character.money);
             moneyAudioSource.time = 0.4f;
             moneyAudioSource.Play(); //play money collecting sfx
 
