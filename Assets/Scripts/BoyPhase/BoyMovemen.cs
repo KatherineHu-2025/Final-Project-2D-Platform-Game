@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BoyMovement : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class BoyMovement : MonoBehaviour
 
     private float jumpCooldown;
 
+    public Slider pageSlider;
 
     //Jump
     private bool _isJumpQueued = false;
@@ -22,6 +24,7 @@ public class BoyMovement : MonoBehaviour
     public float speed;
     public float jumpForce;
     public static int money = 0;
+    public static int pages = 0;
 
     //sound effects
     public AudioSource jumpAudioSource;
@@ -39,6 +42,7 @@ public class BoyMovement : MonoBehaviour
     void Update()
     {
         CheckForQueuingJump();
+        //UpdatePages();
 
     }
     void FixedUpdate()
@@ -152,14 +156,30 @@ public class BoyMovement : MonoBehaviour
         _playerAnimator.SetTrigger("isHurting");
     }
 
-    public int IncreaseMoney()
+    public static int IncreaseMoney()
     {
         return money++;
     }
 
-    public int checkMoney()
+    public static int CheckMoney()
     {
         return money;
+    }
+
+    public static int CheckPages()
+    {
+        return pages;
+    }
+
+    public static int IncreasePages()
+    {
+        return pages++;
+    }
+
+    void UpdatePages()
+    {
+        float pages = CheckPages();
+        pageSlider.value = pages;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -180,4 +200,6 @@ public class BoyMovement : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.12f);
         isGrounded = false;
     }
+
+
 }

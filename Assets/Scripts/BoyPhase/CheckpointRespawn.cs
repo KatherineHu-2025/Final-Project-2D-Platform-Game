@@ -7,7 +7,7 @@ public class CheckpointRespawn : MonoBehaviour
 {
     private Transform currentCheckpoint; //Stores the last checkpoint here
     private int respawnCount = 0;
-    public TMP_Text myText;
+    public DialogueSystem dialogueSystem;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,31 +34,33 @@ public class CheckpointRespawn : MonoBehaviour
         {
             transform.position = currentCheckpoint.position; //reset player's position to checkpoint's position
             Debug.Log("hit spikes");
+            respawnCount++;
+            RespawnText();
         }
     }
 
     private void RespawnText()
     {
-
         if (respawnCount <= 5)
         {
-            myText.text = "That's rough. Keep going!";
+            dialogueSystem.StartDialogueNPC("That's rough. Keep going!");
         }
 
         if (respawnCount > 5 && respawnCount <= 10)
         {
-            myText.text = "Don't give up!";
+            dialogueSystem.StartDialogueNPC("Don't give up!");
         }
 
         if (respawnCount > 10 && respawnCount <= 15)
         {
-            myText.text = "Come on, it's not THAT hard...";
+            dialogueSystem.StartDialogueNPC("Come on, it's not THAT hard...");
         }
 
         if (respawnCount > 15)
         {
-            myText.text = "...";
+            dialogueSystem.StartDialogueNPC("...");
         }
-
     }
+
+
 }

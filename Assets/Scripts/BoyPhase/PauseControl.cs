@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PauseControl : MonoBehaviour
 {
-    public GameObject UIText;
+    //public GameObject UIText;
     public GameObject Menu;
 
     public static bool gameIsPaused;
@@ -31,14 +31,13 @@ public class PauseControl : MonoBehaviour
         {
             Time.timeScale = 0f;
             Menu.gameObject.SetActive(true);
-            UIText.gameObject.SetActive(false);
+            //UIText.gameObject.SetActive(false);
         }
 
         else
         {
             Time.timeScale = 1;
-            Menu.gameObject.SetActive(false);
-            UIText.gameObject.SetActive(true);
+            //Menu.gameObject.SetAc UIText.gameObject.SetActive(true);
         }
     }
 }
