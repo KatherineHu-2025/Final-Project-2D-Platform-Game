@@ -14,7 +14,7 @@ public class ReadCollider : MonoBehaviour
     //private BoyMovement pages;
 
     public GameObject bookSprite;
-
+    //public static bool boyStudied = false;
  
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -30,6 +30,7 @@ public class ReadCollider : MonoBehaviour
 
             if (pageSlider.value == 30)
             {
+                //boyStudied = true;
                 money.SetActive(true);
                 bookSprite.SetActive(false);
                 gameObject.SetActive(false);
