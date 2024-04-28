@@ -1,26 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TeacherMonologue : MonoBehaviour
 {
     public DialogueSystem dialogueSystem;
     public Sprite teacherPortrait;
 
+    public Slider pagesSlider;
+    //public GameObject pageSlider;
+
     //public GameObject border;
     //private int count = 0;
 
-    private void Update()
-    {
-        if (BoyMovement.pages >= 20)
-        {
-            dialogueSystem.EndDialogue();
-            gameObject.GetComponent<Collider2D>().enabled = false;
-        }
-    }
+    //private void Update()
+    //{
+    //    if (pagesSlider.value >= 30)
+    //    {
+    //        dialogueSystem.EndDialogue();
+    //        gameObject.GetComponent<Collider2D>().enabled = false;
+    //    }
+    //}
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        dialogueSystem.StartDialogue("Good morning class! For today, please read 20 pages in the workbook.", teacherPortrait);
+        if (collision.CompareTag("Player"))
+            dialogueSystem.StartDialogue("Good morning class! For today, please read 30 pages in the workbook.\n" +
+                "You can leave after you finish your 30 pages.", teacherPortrait);
         //StartCoroutine(WaitToEnd());
         //dialogueSystem.EndDialogue();
     }
@@ -28,6 +34,7 @@ public class TeacherMonologue : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         dialogueSystem.EndDialogue();
+        gameObject.GetComponent<Collider2D>().enabled = false;
     }
 
     //private void Monologue()

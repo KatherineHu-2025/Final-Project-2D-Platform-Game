@@ -281,8 +281,8 @@ GameObject:
   m_Component:
   - component: {fileID: 256434334}
   - component: {fileID: 256434335}
-  - component: {fileID: 256434337}
   - component: {fileID: 256434338}
+  - component: {fileID: 256434339}
   m_Layer: 0
   m_Name: SeatCollider
   m_TagString: Untagged
@@ -350,20 +350,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9808872, y: 3.654624}
   m_EdgeRadius: 0
---- !u!114 &256434337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256434333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 736f08c5699a8cb4dadf643775f2dd01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueSystem: {fileID: 2017080428}
-  teacherPortrait: {fileID: -885042256, guid: cce662b4039eb1b42ac53f897f90104f, type: 3}
 --- !u!114 &256434338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +364,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftBorder: {fileID: 1452578391}
   rightBorder: {fileID: 734962045}
+--- !u!114 &256434339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256434333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b09235d54ed3f42b1ea53d91be8c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSystem: {fileID: 2017080428}
+  teacherPortrait: {fileID: -885042256, guid: cce662b4039eb1b42ac53f897f90104f, type: 3}
 --- !u!1 &261065990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,8 +2689,8 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1034507449}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_MaxValue: 30
+  m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2873,7 +2873,6 @@ GameObject:
   - component: {fileID: 1193871150}
   - component: {fileID: 1193871149}
   - component: {fileID: 1193871151}
-  - component: {fileID: 1193871152}
   m_Layer: 0
   m_Name: Teacher
   m_TagString: Untagged
@@ -2969,20 +2968,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1193871152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193871148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 091a4bb41957af444bf60f2788d39006, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueSystem: {fileID: 2017080428}
-  teacherPortrait: {fileID: 1811368132, guid: cce662b4039eb1b42ac53f897f90104f, type: 3}
 --- !u!1001 &1219733727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4331,7 +4316,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -353783792, guid: c367fc8fb9a014b83b34adb4c3cbe534, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -19,6 +19,8 @@ public class ReadCollider : MonoBehaviour
             // Disables the Collider2D component
             BoyMovement.IncreasePages();
             Debug.Log("collider hit");
+            UpdatePages();
+            Debug.Log("pages are: " +  pageSlider.value);
             //_pageAnimator.Play("Page");
         }
     }
